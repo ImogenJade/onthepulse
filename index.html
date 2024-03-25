@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwindcss cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Montserrat cdn -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom css file -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="relative">
+    <!-- Navbar with white background, the logo to the left of the container. On the right side of the conainer, 3 links: ABout, Services, Contact. -->
+    <nav class="bg-white pt-[7px] sticky top-0 z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#">
+          <img src="images/logo.svg" alt="Logo" />
+        </a>
+        <ul class="flex space-x-20 font-sans font-bold text-lg tracking-wide">
+          <li>
+            <a
+              href="#what-we-do"
+              class="uppercase hover:underline underline-offset-4"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#services"
+              class="uppercase hover:underline underline-offset-4"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#footer"
+              class="uppercase hover:underline underline-offset-4"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="bg-hero bg-cover bg-center min-h-[799px] items-center relative"
+    >
+      <img
+        loading="lazy"
+        src="images/sticky-notes.png"
+        alt="board with sticky notes"
+        class="absolute object-cover inset-0 size-full"
+      />
+
+      <div
+        class="absolute right-0 object-cover size-full z-2 \ bg-gradient-to-l from-white/60 w-10/12"
+      ></div>
+
+      <div class="container mx-auto inset-0 absolute flex">
+        <h1
+          class="text-[64px] w-1/2 leading-tight ml-auto text-right self-center text-[#272E24] font-semibold z-3"
+        >
+          A research, insights and strategy focused agency bridging social
+          impact needs
+        </h1>
+      </div>
+    </section>
+
+    <!-- What we do -->
+    <section id="what-we-do" class="pt-24 pb-20">
+      <h2 class="uppercase text-center font-semibold text-5xl">What we do</h2>
+
+      <div class="container mx-auto flex relative">
+        <ul class="mt-28">
+          <li class="what-we-do__item hover:text-[#CA6D55]">Explore</li>
+          <li class="what-we-do__item hover:text-[#CA6D55] mt-8">Imagine</li>
+          <li class="what-we-do__item hover:text-[#CA6D55] mt-8">Make</li>
+          <li class="what-we-do__item hover:text-[#CA6D55] mt-8">Evaluate</li>
+        </ul>
+
+        <img
+          loading="lazy"
+          src="images/laptop.png"
+          alt="Laptop"
+          class="max-w-[553px] absolute right-20 -bottom-56"
+        />
+        <!-- class="shrink-0 max-w-full aspect-[2.13] w-[247px]" -->
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="bg-[#F5F5F5] pt-24 pb-28">
+      <h2 class="uppercase text-center font-semibold text-5xl">Services</h2>
+
+      <div class="container mx-auto mt-14 pt-3">
+        <!-- card: Insights & Impact Evaluation -->
+        <div class="card mt-20 flex">
+          <!-- Content -->
+          <div class="pr-20 w-1/2">
+            <h3 class="font-medium text-3xl">Communication Strategy</h3>
+            <p class="mt-6 text-2xl">
+              Develop end-to-end campaign experiences from first click to
+              conversion. We collaborate with you and your target communities to
+              explore ideas, develop insights and identify the most effective
+              ways to make change.
+            </p>
+            <ul class="text-2xl list-disc list-inside mt-14">
+              <li class="mt-3">Campaign strategy</li>
+              <li class="mt-3">Internal/External audience research</li>
+              <li class="mt-3">Messaging research</li>
+              <li class="mt-3">Co-creation campaign workshops</li>
+              <li class="mt-3">Campaign reporting and measurement</li>
+              <li class="mt-3">
+                Project portfolio data and stories for external advisory
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image 1 -->
+          <img
+            src="images/strategic-planning.png"
+            alt="Team strategic planning"
+            class="w-1/2"
+          />
+        </div>
+
+        <!-- card: Campaign Concept -->
+        <div class="card mt-20 flex flex-row-reverse">
+          <!-- Content -->
+          <div class="pl-20 w-1/2">
+            <h3 class="font-medium text-3xl">Campaing concept</h3>
+            <p class="text-2xl mt-6">
+              Create and grow cross-channel campaigns to activate change. We
+              craft scalable campaign creative to stand out, win hearts and
+              minds, and compel people to act.
+            </p>
+            <ul class="text-2xl list-disc list-inside mt-14">
+              <li class="mt-3">Creative concepts</li>
+              <li class="mt-3">Campaign branding and communications design</li>
+              <li class="mt-3">Messaging research</li>
+              <li class="mt-3">Campaign websites and digital development</li>
+              <li class="mt-3">Messaging guides</li>
+              <li class="mt-3">Campaign rollout</li>
+              <li class="mt-3">Capability uplift and training</li>
+            </ul>
+          </div>
+
+          <!-- Image 2 -->
+          <img src="images/concept.png" alt="concept" class="w-1/2" />
+        </div>
+
+        <!-- card: Communication Strategy -->
+        <div class="card mt-20 flex">
+          <!-- Content -->
+          <div class="pr-20 w-1/2">
+            <h3 class="font-medium text-3xl">Insights & Impact Evaluation</h3>
+            <p class="mt-6 text-2xl">
+              Uncover the unexpected. Build your understanding of the human
+              experience of services, products, places and policy. We capture
+              what matters and call out interesting opportunities for impact
+            </p>
+            <ul class="text-2xl list-disc list-inside mt-14">
+              <li class="mt-3">Discovery</li>
+              <li class="mt-3">Case Studies</li>
+              <li class="mt-3">Usability testing</li>
+              <li class="mt-3">Landscape and trends studies</li>
+              <li class="mt-3">Current state analysis</li>
+              <li class="mt-3">Opportunity mapping</li>
+            </ul>
+          </div>
+
+          <!-- Image 3 -->
+          <img
+            src="images/threads.png"
+            alt="Team strategic planning"
+            class="w-1/2"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-[#6F8167] pt-32 pb-2 text-white">
+      <div class="container mx-auto flex">
+        <div class="first-col w-4/12">
+          <p class="text-xl">
+            On the Pulse partners with leading organisations, change-makers,
+            businesses, and philanthropies.
+          </p>
+          <!-- Instagram Icon -->
+          <div class="mt-20 flex">
+            <img src="images/instagram-logo.svg" alt="Instagram" />
+            <a
+              href="https://www.instagram.com/onthepulse_consultancy/"
+              class="font-serif ml-2 my-auto hover:underline text-2xl"
+            >
+              @onthepulse
+            </a>
+          </div>
+
+          <!-- Email subscription -->
+          <div id="mc_embed_shell" class="mt-12 text-black">
+            <div id="mc_embed_signup">
+              <form
+                action="https://gmail.us22.list-manage.com/subscribe/post?u=2e26b220adabb69b8e23e9d97&amp;id=b558d2dd25&amp;f_id=00facbe1f0"
+                method="post"
+                id="mc-embedded-subscribe-form"
+                name="mc-embedded-subscribe-form"
+                class="validate text-white"
+                target="_self"
+                novalidate=""
+              >
+                <div id="mc_embed_signup_scroll">
+                  <div class="mc-field-group flex">
+                    <label for="mce-EMAIL" class="sr-only">Email Address</label>
+                    <input
+                      type="email"
+                      name="EMAIL"
+                      class="required email text-[#272E24] h-16 my-auto px-4 w-full"
+                      id="mce-EMAIL"
+                      required=""
+                      value=""
+                      placeholder="Email Address"
+                      aria-label="Email Address"
+                    />
+                    <input
+                      type="submit"
+                      name="subscribe"
+                      id="mc-embedded-subscribe"
+                      class="justify-center ml-3 px-4 h-16 font-semibold text-white whitespace-nowrap bg-[#CA6D55] shadow-sm"
+                      value="Subscribe"
+                    />
+                  </div>
+                  <div id="mce-responses" class="clear foot">
+                    <div
+                      class="response"
+                      id="mce-error-response"
+                      style="display: none"
+                    ></div>
+                    <div
+                      class="response"
+                      id="mce-success-response"
+                      style="display: none"
+                    ></div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    style="position: absolute; left: -5000px"
+                  >
+                    /* real people should not fill this in and expect good
+                    things - do not remove this or risk form bot signups */
+                    <input
+                      type="text"
+                      name="b_2e26b220adabb69b8e23e9d97_b558d2dd25"
+                      tabindex="-1"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <p class="w-4/12 ml-auto text-xl">
+          A dedicated consultancy in social impact, communications, and
+          research, driven by a fervent desire to enhance the effectiveness of
+          nonprofits and social initiatives. From assessing messaging
+          effectiveness to evaluating digital presence, leveraging storytelling,
+          and providing valuable insights and strategic recommendations to reach
+          organisational goals.
+        </p>
+      </div>
+
+      <p class="uppercase font-serif text-center mt-32 text-sm">
+        © 2024, On the Pulse
+      </p>
+    </footer>
+  </body>
+</html>
