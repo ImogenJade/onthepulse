@@ -16,33 +16,64 @@
   <body class="relative">
     <!-- Navbar with white background, the logo to the left of the container. On the right side of the conainer, 3 links: ABout, Services, Contact. -->
     <nav class="bg-white pt-[7px] sticky top-0 z-10">
-      <div class="container mx-auto flex justify-between items-center">
+      <div
+        class="container mx-auto flex flex-wrap items-center justify-between items-center"
+      >
         <a href="#">
           <img src="images/logo.svg" alt="Logo" />
         </a>
-        <ul class="flex space-x-20 font-sans font-bold text-lg tracking-wide">
-          <li>
-            <a
-              href="#what-we-do"
-              class="uppercase hover:underline underline-offset-4"
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="#services"
-              class="uppercase hover:underline underline-offset-4"
-              >Services</a
-            >
-          </li>
-          <li>
-            <a
-              href="#footer"
-              class="uppercase hover:underline underline-offset-4"
-              >Contact</a
-            >
-          </li>
-        </ul>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-8 h-8"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            id="navbar-list"
+            class="font-sans font-bold text-lg tracking-wide flex flex-col md:flex-row md:space-x-20 p-8 md:p-0 space-y-8 md:space-y-0"
+          >
+            <li class="flex">
+              <a
+                href="#what-we-do"
+                class="uppercase hover:underline underline-offset-4 mx-auto md:mx-auto"
+                >About</a
+              >
+            </li>
+            <li class="flex">
+              <a
+                href="#services"
+                class="uppercase hover:underline underline-offset-4 mx-auto md:mx-auto"
+                >Services</a
+              >
+            </li>
+            <li class="flex">
+              <a
+                href="#footer"
+                class="uppercase hover:underline underline-offset-4 mx-auto md:mx-auto"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -281,5 +312,15 @@
         © 2024, On the Pulse
       </p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Toggle the mobile menu
+      document
+        .querySelector('[data-collapse-toggle="navbar-default"]')
+        .addEventListener("click", function () {
+          document.getElementById("navbar-default").classList.toggle("hidden");
+        });
+    </script>
   </body>
 </html>
