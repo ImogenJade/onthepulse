@@ -103,30 +103,115 @@
     </section>
 
     <!-- What we do -->
-    <section id="what-we-do" class="pt-24 pb-20">
-      <h2 class="uppercase text-center font-semibold text-5xl">What we do</h2>
+    <section id="what-we-do" class="pt-8 md:pt-16 xl:pt-24 pb-20">
+      <h2
+        class="uppercase text-center font-semibold text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+      >
+        What we do
+      </h2>
 
-      <div class="container mx-auto flex relative">
-        <ul class="mt-28">
-          <li class="what-we-do__item hover:text-[#CA6D55]">Explore</li>
-          <li class="what-we-do__item hover:text-[#CA6D55] mt-8">Imagine</li>
-          <li class="what-we-do__item hover:text-[#CA6D55] mt-8">Make</li>
-          <li class="what-we-do__item hover:text-[#CA6D55] mt-8">Evaluate</li>
+      <div
+        class="container mx-auto flex flex-col xl:flex-row static xl:relative"
+      >
+        <ul class="mt-12 xl:mt-28 px-8 xl:px-0 space-y-6 xl:space-y-8">
+          <li
+            class="what-we-do__item md:min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-5xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Explore
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Research and insights
+              </h4>
+              <p>Make sense of complexity and find bold ways forward.</p>
+            </div>
+          </li>
+
+          <li
+            class="what-we-do__item min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-5xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Imagine
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide opacity-none xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Plan and strategise
+              </h4>
+              <p>
+                Develop strategies and plans that are grounded in evidence and
+                insight.
+              </p>
+            </div>
+          </li>
+
+          <li
+            class="what-we-do__item min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-4xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Make
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide opacity-none xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Build and deliver campaigns
+              </h4>
+              <p>
+                Create and deliver campaigns that drive change and make an
+                impact.
+              </p>
+            </div>
+          </li>
+
+          <li
+            class="what-we-do__item min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-4xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Evaluate
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide opacity-none xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Measure and learn from our work
+              </h4>
+              <p>
+                Evaluate campaigns and strategies to learn what works and what
+                doesn’t.
+              </p>
+            </div>
+          </li>
         </ul>
 
         <img
           loading="lazy"
           src="images/laptop.png"
           alt="Laptop"
-          class="max-w-[553px] absolute right-20 -bottom-56"
+          class="max-w-[337px] 2xl:max-w-[553px] static mx-auto xl:absolute xl:right-20 xl:-bottom-56 mt-8 md:mt-12 xl:mt-0"
         />
-        <!-- class="shrink-0 max-w-full aspect-[2.13] w-[247px]" -->
       </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="bg-[#F5F5F5] pt-24 pb-28">
-      <h2 class="uppercase text-center font-semibold text-5xl">Services</h2>
+    <section id="services" class="bg-[#F5F5F5] pt-8 md:pt-24 pb-28">
+      <h2
+        class="uppercase text-center font-semibold text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+      >
+        Services
+      </h2>
 
       <div class="container mx-auto mt-14 pt-3">
         <!-- card: Insights & Impact Evaluation -->
@@ -321,6 +406,30 @@
         .addEventListener("click", function () {
           document.getElementById("navbar-default").classList.toggle("hidden");
         });
+
+      // Dynamic opacity when hovering over the card
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const cards = document.querySelectorAll(".what-we-do__card");
+
+        cards.forEach((card) => {
+          if (window.innerWidth > 768) {
+            // Change this value to the breakpoint you want
+            card.parentNode.addEventListener("mouseover", function () {
+              card.classList.replace("xl:opacity-20", "opacity-none");
+            });
+
+            card.parentNode.addEventListener("mouseout", function () {
+              card.classList.replace("opacity-none", "xl:opacity-20");
+            });
+          }
+        });
+      });
+
+      // On page load make the first card active
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const cards = document.querySelectorAll(".what-we-do__card");
+        cards[0].classList.replace("xl:opacity-20", "opacity-none");
+      });
     </script>
   </body>
 </html>

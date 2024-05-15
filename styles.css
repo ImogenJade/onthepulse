@@ -6,14 +6,9 @@ html {
 h1,
 h2,
 h3,
+h4,
 p,
 ul,
 form {
   font-family: "Montserrat", sans-serif;
-}
-
-.what-we-do__item {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 3.3125rem;
 }
