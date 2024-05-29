@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: CloudFormation template for an ACM certificate for a static website on S3 and CloudFront.
+
+Parameters:
+  BucketName:
+    Description: The temporary bucket name for the website (e.g., my-temp-site)
+    Type: String
+  DomainName:
+    Description: The domain name for the website (e.g., example.com)
+    Type: String
+  HostedZoneId:
+    Description: The Route 53 hosted zone ID for the domain name
+    Type: String
+  CertificateArn:
+    Description: The ARN of the ACM certificate
+    Type: String
+
+Resources:
+  DnsValidatedCertificate:
+    Type: "AWS::CertificateManager::Certificate"
+    Properties:
+      DomainName: !Ref DomainName
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+
+Outputs:
+  CertificateArn:
+    Description: The ARN of the ACM certificate
+    Value: !Ref DnsValidatedCertificate

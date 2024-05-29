@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+source .env
+
+echo "Updating stack..."
+
+# Update the stack
+if ! aws cloudformation update-stack \
+    --stack-name StaticWebsiteStack \
+    --template-body file://deploy/static-website-final.yaml \
+    --parameters file://deploy/parameters.json \
+    --region "ap-southeast-2" \
+    --capabilities CAPABILITY_NAMED_IAM > /dev/null
+then
+    echo "Failed to update stack."
+    exit 1
+fi
+
+# Wait for the stack to be updated
+aws cloudformation wait stack-update-complete \
+    --stack-name StaticWebsiteStack \
+    --region "ap-southeast-2"
+
+echo "Stack updated."
+
+# Get the bucket name
+BUCKET_NAME="$(aws cloudformation describe-stacks \
+    --stack-name StaticWebsiteStack \
+    --query "Stacks[0].Parameters[0].ParameterValue" \
+    --region "ap-southeast-2" \
+    --output text)"
+
+echo "Copying files to S3..."
+
+if ! aws s3 cp "public" "s3://${BUCKET_NAME}" --recursive
+then
+    echo "Failed to copy files to S3."
+    exit 1
+fi
+
+echo "Files copied."

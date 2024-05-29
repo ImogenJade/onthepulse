@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+source .env
+
+echo "Deploying stack..."
+
+# Deploy
+aws cloudformation deploy \
+  --no-fail-on-empty-changeset \
+  --stack-name "StaticWebsiteStack" \
+  --template-file "deploy/static-website-final.yaml" \
+  --parameter-overrides file://deploy/parameters.json \
+  --region "ap-southeast-2" \
+  --capabilities CAPABILITY_NAMED_IAM
+
+echo "Stack deployed."
+
+# Get the bucket name
+BUCKET_NAME="$(aws cloudformation describe-stacks \
+    --stack-name StaticWebsiteStack \
+    --query "Stacks[0].Parameters[0].ParameterValue" \
+    --region "ap-southeast-2" \
+    --output text)"
+
+# Sync files to S3
+echo "Syncying files to S3..."
+if ! aws s3 sync "public" "s3://${BUCKET_NAME}"
+then
+    echo "Failed to syncc files to S3."
+    exit 1
+fi
+
+echo "Files synced."
+
+# Get the CloudFront distribution ID
+DISTRIBUTION_ID="$(aws cloudformation describe-stacks \
+    --stack-name StaticWebsiteStack \
+    --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
+    --region "ap-southeast-2" \
+    --output text)"
+
+# Invalidate CloudFront cache
+echo "Invalidating CloudFront cache..."
+if ! aws cloudfront create-invalidation \
+    --distribution-id "${DISTRIBUTION_ID}" \
+    --paths "/*"
+then
+    echo "Failed to invalidate CloudFront cache."
+    exit 1
+fi
+
+echo "CloudFront cache invalidated."

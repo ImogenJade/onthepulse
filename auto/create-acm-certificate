@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+source .env
+
+echo "Creating ACM cetificate..."
+
+# Create ACM certificate
+aws cloudformation deploy \
+  --no-fail-on-empty-changeset \
+  --stack-name "acm-certificate" \
+  --template-file "deploy/acm-certificate.yaml" \
+  --parameter-overrides file://deploy/parameters.json \
+  --region us-east-1 > /dev/null
+
+# Ptint certificate ARN
+aws cloudformation describe-stacks \
+  --stack-name acm-certificate \
+  --query "Stacks[0].Outputs[?OutputKey=='CertificateArn'].OutputValue" \
+  --region "us-east-1" \
+  --output text

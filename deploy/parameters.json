@@ -1,0 +1,18 @@
+[
+  {
+    "ParameterKey": "BucketName",
+    "ParameterValue": "on-the-pulse-consultancy"
+  },
+  {
+    "ParameterKey": "DomainName",
+    "ParameterValue": "onthepulseconsultancy.org"
+  },
+  {
+    "ParameterKey": "HostedZoneId",
+    "ParameterValue": "Z080271612HIODOCZ3LCY"
+  },
+  {
+    "ParameterKey": "CertificateArn",
+    "ParameterValue": "arn:aws:acm:us-east-1:471112541208:certificate/890faded-9cfa-4687-895e-7524f6e4951f"
+  }
+]

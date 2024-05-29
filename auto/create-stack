@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+source .env
+
+# Create the stack
+echo "Creating stack..."
+
+aws cloudformation create-stack \
+    --stack-name StaticWebsiteStack \
+    --template-body file://deploy/static-website-temp.yaml \
+    --parameters file://deploy/parameters.json \
+    --region "ap-southeast-2" \
+    --capabilities CAPABILITY_NAMED_IAM > /dev/null
+
+# Wait for the stack to be created
+aws cloudformation wait stack-create-complete \
+    --stack-name StaticWebsiteStack \
+    --region "ap-southeast-2"
+
+echo "Stack created."
+
+# Get the bucket name
+BUCKET_NAME="$(aws cloudformation describe-stacks \
+    --stack-name StaticWebsiteStack \
+    --region "ap-southeast-2" \
+    --query "Stacks[0].Parameters[0].ParameterValue" \
+    --output text)"
+
+# Copy the files to the bucket
+echo "Copying files to S3..."
+
+if ! aws s3 cp "public" "s3://${BUCKET_NAME}" --recursive
+then
+    echo "Failed to copy files to S3."
+    exit 1
+fi
+
+echo "Files copied."
+
+# Print the website URL
+echo "Website URL: http://${BUCKET_NAME}.s3-website-ap-southeast-2.amazonaws.com"
