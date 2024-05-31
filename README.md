@@ -19,6 +19,12 @@ The website is deployed on AWS S3 and CloudFront. The stack can be found in [dep
 
 Visit [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md).
 
+## CI/CD
+
+- The CI/CD pipeline is managed by GitHub Actions.
+- For authentication, the IAM user `StaticWebsiteDeployUser` has been created with permission to asume the role that has the necessary permissions. The access key and secret key of this user are stored in GitHub Secrets.
+- The workflow can be found in [.github/workflows/main.yaml](./.github/workflows/main.yaml).
+
 ## Contact
 
 For any inquiries, please contact [José Arévalo] at <jose.matias.arevalo@gmail.com>.

@@ -42,7 +42,7 @@ auto/create-stack
 
 ## Regular deployment
 
-TODO: As part of CI
+New changes to main will trigger a new deployment as part of CI:
 
 ```sh
 auto/deploy

@@ -3,7 +3,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-source .env
+
+if [ -f .env ]; then
+  source .env
+fi
 
 echo "Deploying stack..."
 
@@ -27,9 +30,9 @@ BUCKET_NAME="$(aws cloudformation describe-stacks \
 
 # Sync files to S3
 echo "Syncying files to S3..."
-if ! aws s3 sync "public" "s3://${BUCKET_NAME}"
+if ! aws s3 sync "public" "s3://${BUCKET_NAME}";
 then
-    echo "Failed to syncc files to S3."
+    echo "Failed to sync files to S3."
     exit 1
 fi
 

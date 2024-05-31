@@ -1,0 +1,29 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Assume role and configure AWS credentials
+        run: |
+          set -x
+          aws configure set region ap-southeast-2
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          CREDENTIALS=$(aws sts assume-role --role-arn arn:aws:iam::471112541208:role/StaticWebsiteRole --role-session-name github-actions --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' --output text)
+          read AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN <<< $CREDENTIALS
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set aws_session_token $AWS_SESSION_TOKEN
+
+      - name: Deploy to AWS
+        run: auto/deploy
