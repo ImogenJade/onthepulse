@@ -1,51 +1,24 @@
-# Static Website
+# On The Pulse Consultancy - Website
+
+Welcome to the repository for On The Pulse static website. This README provides information about the project, its structure, and how to work with the codebase.
+
+## Technologies Used
+
+- HTML5
+- TailwindCSS
+
+## Local Development
+
+Being a static website, the codebase can be run locally by opening the `public/index.html` file in a browser.
+
+## System Architecture
+
+The website is deployed on AWS S3 and CloudFront. The stack can be found in [deploy/static-website-final.yaml](./deploy/static-website-final.yaml).
 
 ## Deployment
 
-### [ASAP] Create a Hosted Zone and get DNS to point at it
+Visit [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md).
 
-ℹ️ This could take up to 72 hours, so it's better to get it done asap. Although, sometimes 1 hour will do.
+## Contact
 
-1. Go to Route53 and manually create a Hosted Zone. Two records will get created out of the box. Take note of the nameservers.
-1. In Namecheap.com, add the nameservers (CustomDNS) to point to the recently created hosted zone.
-1. Also take note of the HostedZone Id. This will be needed for the production deployment step.
-
-Tip: You can monitor the progress of this with these commands:
-
-```sh
-dig example.com any
-# or:
-nslookup example.com
-```
-
-### Temp deployment
-
-Meant for when the domain name is not available yet. The bucket name can be set in `deploy/parameters.json`.
-
-```sh
-auto/create-stack
-```
-
-### Production deployment (with domain name)
-
-1. Update the file `deploy/parameters.json` with the `HostedZoneId` and domain name. Then run:
-
-   ```sh
-   auto/create-acm-certificate
-   ```
-
-   Take note of the ACM ARN.
-
-1. Update the file `deploy/parameters.json` with the `CertificateArn` and then run:
-
-   ```sh
-   auto/update-stack
-   ```
-
-### Regular deployment
-
-TODO: As part of CI
-
-```sh
-auto/deploy
-```
+For any inquiries, please contact [José Arévalo] at <jose.matias.arevalo@gmail.com>.
