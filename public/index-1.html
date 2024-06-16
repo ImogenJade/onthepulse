@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwindcss cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Montserrat cdn -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom css file -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="relative">
+    <!-- Navbar with white background, the logo to the left of the container. On the right side of the conainer, 3 links: ABout, Services, Contact. -->
+    <nav class="bg-white pt-[7px] sticky top-0 z-30">
+      <div
+        class="container mx-auto flex flex-wrap items-center justify-between items-center pr-2 sm:pr-0"
+      >
+        <a href="#">
+          <img
+            src="images/logo.svg"
+            alt="Logo"
+            class="max-w-[83px] sm:max-w-max"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-8 h-8"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            id="navbar-list"
+            class="font-sans font-bold text-lg tracking-wide flex flex-col md:flex-row md:space-x-20 p-8 md:p-0 space-y-8 md:space-y-0"
+          >
+            <li class="flex">
+              <a
+                href="#what-we-do"
+                class="uppercase hover:underline underline-offset-4 mx-auto md:mx-auto"
+                >About</a
+              >
+            </li>
+            <li class="flex">
+              <a
+                href="#services"
+                class="uppercase hover:underline underline-offset-4 mx-auto md:mx-auto"
+                >Services</a
+              >
+            </li>
+            <li class="flex">
+              <a
+                href="#footer"
+                class="uppercase hover:underline underline-offset-4 mx-auto md:mx-auto"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="bg-hero bg-cover bg-center min-h-96 md:min-h-[550px] xl:min-h-[799px] items-center relative"
+    >
+      <img
+        loading="lazy"
+        src="images/sticky-notes.png"
+        alt="board with sticky notes"
+        class="absolute object-cover min-h-96 md:size-full inset-0"
+      />
+
+      <div
+        class="absolute right-0 object-cover size-full z-2 bg-gradient-to-l from-white/60 w-full 2xl:w-10/12"
+      ></div>
+
+      <div class="container mx-auto inset-0 absolute flex">
+        <h1
+          class="text-3xl md:text-5xl lg:text-[64px] w-9/12 md:w-11/12 2xl:w-1/2 px-4 md:px-0 leading-tight ml-auto text-right self-center text-[#272E24] font-semibold z-3"
+        >
+          A research, insights and strategy focused agency
+        </h1>
+      </div>
+    </section>
+
+    <!-- What we do -->
+    <section id="what-we-do" class="pt-8 md:pt-16 xl:pt-24 pb-20 relative">
+      <h2
+        class="uppercase text-center font-semibold text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+      >
+        What we do
+      </h2>
+
+      <div
+        class="container mx-auto flex flex-col xl:flex-row static xl:relative"
+      >
+        <ul class="mt-12 xl:mt-28 px-8 xl:px-0 space-y-6 xl:space-y-8">
+          <li
+            class="what-we-do__item md:min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-5xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Explore
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Research and insights
+              </h4>
+              <p>Make sense of complexity and find bold ways forward.</p>
+            </div>
+          </li>
+
+          <li
+            class="what-we-do__item min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-5xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Imagine
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide opacity-none xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Plan and strategise
+              </h4>
+              <p>
+                Develop strategies and plans that are grounded in evidence and
+                insight.
+              </p>
+            </div>
+          </li>
+
+          <li
+            class="what-we-do__item min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-4xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Make
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide opacity-none xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Build and deliver campaigns
+              </h4>
+              <p>
+                Create and deliver campaigns that drive change and make an
+                impact.
+              </p>
+            </div>
+          </li>
+
+          <li
+            class="what-we-do__item min-h-28 hover:text-[#CA6D55] flex flex-col md:flex-row max-w-4xl"
+          >
+            <div class="min-w-80">
+              <h3 class="text-2xl md:text-4xl xl:text-6xl font-semibold">
+                Evaluate
+              </h3>
+            </div>
+            <div
+              class="what-we-do__card text-base md:text-xl 2xl:text-2xl tracking-wide opacity-none xl:opacity-20"
+            >
+              <h4 class="font-medium font-semibold mt-1">
+                Measure and learn from our work
+              </h4>
+              <p>
+                Evaluate campaigns and strategies to learn what works and what
+                doesn’t.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Laptop Circle -->
+        <img
+          loading="lazy"
+          src="images/laptop.png"
+          alt="Laptop"
+          class="max-w-[337px] 2xl:max-w-[553px] static mx-auto xl:absolute xl:right-20 xl:-bottom-56 mt-8 md:mt-12 xl:mt-0"
+        />
+
+        <!-- Add floating shape: dots grid 1 -->
+        <img
+          src="images/shapes/dots-grid.svg"
+          alt="Decorative floating shape"
+          class="absolute left-0 xl:-left-[50px] top-0 xl:-top-[100px] max-w-[100px] sm:max-w-[180px] xl:max-w-sm"
+        />
+      </div>
+
+      <!-- Add floating shape: arrow shapes -->
+      <img
+        src="images/shapes/arrow-shapes.svg"
+        alt="Decorative floating shape"
+        class="absolute -z-30 3xl:hidden right-0 bottom-56 max-w-[180px] sm:bottom-52 sm:max-w-[200px] sm:max-w-xs md:max-w-full lg:w-[500px] xl:max-w-[200px] 2xl:max-w-[250px] xl:bottom-4 2xl:bottom-28"
+      />
+    </section>
+
+    <!-- Services -->
+    <section
+      id="services"
+      class="bg-[#F5F5F5] pt-8 md:pt-24 pb-14 md:pb-28 px-4 md:pb-0"
+    >
+      <div class="relative text-center">
+        <h2
+          class="uppercase font-semibold text-2xl md:text-3xl lg:text-4xl xl:text-5xl inline-block relative"
+        >
+          Services
+          <img
+            src="images/shapes/purple-underline.svg"
+            alt="Decorative underline"
+            class="absolute left-1/2 transform -translate-x-1/2 w-full -bottom-3 md:-bottom-5 xl:-bottom-7"
+          />
+        </h2>
+      </div>
+
+      <div class="container mx-auto mt-14 pt-0 md:pt-3 relative">
+        <!-- card: Insights & Impact Evaluation -->
+        <div class="card mt-14 md:mt-20 flex flex-col-reverse md:flex-row">
+          <!-- Content -->
+          <div class="md:pr-20 md:w-1/2">
+            <h3 class="font-medium text-xl md:text-3xl mt-8 md:mt-0">
+              Communications and Campaign Strategy
+            </h3>
+            <p class="mt-4 md:mt-6 text-lg md:text-2xl">
+              Develop end-to-end campaign experiences from first click to conversion. We collaborate with you and your target communities and audiences to explore ideas, develop insights and identify the most effective ways to make change.
+            </p>
+            <ul class="text-lg md:text-2xl list-disc list-inside mt-4 md:mt-8">
+              <li class="md:mt-3">Campaign strategy</li>
+              <li class="md:mt-3">Internal/External audience research</li>
+              <li class="md:mt-3">Messaging research</li>
+              <li class="md:mt-3">Co-creation campaign workshops</li>
+              <li class="md:mt-3">Campaign reporting and measurement</li>
+              <li class="md:mt-3">
+                Project portfolio data and stories for external advisory
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image 1 -->
+          <img
+            src="images/communicatios.png"
+            alt="Communications and Campaign Strategy"
+            class="object-cover h-56 sm:h-96 xl:h-auto w-full md:w-1/2 z-20"
+          />
+        </div>
+
+        <!-- card: Campaign Concept -->
+        <div
+          class="card mt-14 md:mt-20 flex flex-col-reverse md:flex-row-reverse"
+        >
+          <!-- Content -->
+          <div class="md:pl-20 md:w-1/2">
+            <h3 class="font-medium text-xl md:text-3xl mt-8 md:mt-0">
+              UX Design
+            </h3>
+            <p class="mt-4 md:mt-6 text-lg md:text-2xl">Transform the user experience with wire- framing and interface prototypes that bridge gaps and bring designs to life with precision. Go from wireframe to interactive reality, adding distinctiveness to your vision.</p>
+            <ul class="text-lg md:text-2xl list-disc list-inside mt-4 md:mt-8">
+              <li class="md:mt-3">Design Evaluation</li>
+              <li class="md:mt-3">Wireframes & Pixel-Perfect Mockups</li>
+              <li class="md:mt-3">Rapid Prototyping</li>
+              <li class="md:mt-3">Visual Design</li>
+            </ul>
+          </div>
+
+          <!-- Image 2 -->
+          <img
+            src="images/design.png"
+            alt="UX Design"
+            class="object-cover h-56 sm:h-96 xl:h-auto w-full md:w-1/2 z-20"
+          />
+        </div>
+
+        <!-- card: Communication Strategy -->
+        <div class="card mt-14 md:mt-20 flex flex-col-reverse md:flex-row">
+          <!-- Content -->
+          <div class="md:pr-20 md:w-1/2">
+            <h3 class="font-medium text-xl md:text-3xl mt-8 md:mt-0">
+              Insights & Impact Evaluation
+            </h3>
+            <p class="mt-4 md:mt-6 text-lg md:text-2xl">
+              Uncover the unexpected. Build your understanding of the human
+              experience of services, products, places and policy. We capture
+              what matters and call out interesting opportunities for impact
+            </p>
+            <ul class="text-lg md:text-2xl list-disc list-inside mt-4 md:mt-8">
+              <li class="md:mt-3">Discovery</li>
+              <li class="md:mt-3">Case Studies</li>
+              <li class="md:mt-3">Usability testing</li>
+              <li class="md:mt-3">Landscape and trends studies</li>
+              <li class="md:mt-3">Current state analysis</li>
+              <li class="md:mt-3">Opportunity mapping</li>
+            </ul>
+          </div>
+
+          <!-- Image 3 -->
+          <img
+            src="images/insights.png"
+            alt="Insights & Impact Evaluation"
+            class="object-cover h-56 sm:h-96 xl:h-auto w-full md:w-1/2 z-20"
+          />
+        </div>
+
+        <!-- Add floating shape: diamond 1 -->
+        <img
+          src="images/shapes/diamond.svg"
+          alt="Decorative floating shape"
+          class="absolute right-0 -top-14 max-w-4 md:-top-6 md:max-w-[20px] md:-right-10 lg:max-w-[30px] lg:-right-10 2xl:-top-8 2xl:max-w-full 2xl:-right-20"
+        />
+
+        <!-- Add floating shape: dots grid 2 -->
+        <img
+          src="images/shapes/dots-grid.svg"
+          alt="Decorative floating shape"
+          class="absolute hidden lg:block lg:max-w-[180px] 2xl:max-w-[247px] top-1/3 right-0 md:-right-10 lg:-right-10 2xl:-right-20"
+        />
+
+        <!-- Add floating shape: dots grid 3 -->
+        <img
+          src="images/shapes/dots-grid.svg"
+          alt="Decorative floating shape"
+          class="absolute hidden lg:block lg:max-w-[180px] 2xl:max-w-[247px] bottom-1/3 left-0 md:-left-10 lg:-left-10 2xl:-left-20"
+        />
+
+        <!-- Add floating shape: diamond 2 -->
+        <img
+          src="images/shapes/diamond.svg"
+          alt="Decorative floating shape"
+          class="absolute right-0 bottom-1/3 max-w-4 md:max-w-[20px] md:-right-10 lg:max-w-[30px] lg:-right-10 2xl:max-w-full 2xl:-right-20"
+        />
+
+        <!-- Add floating shape: yellow-drawing -->
+        <img
+          src="images/shapes/yellow-drawing.svg"
+          alt="Decorative floating shape"
+          class="absolute right-0 sm:-right-10 xl:-right-24 -bottom-10 md:-bottom-20 w-full max-w-[77px] sm:max-w-[149px] xl:max-w-[304px]"
+        />
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      id="footer"
+      class="bg-[#6F8167] pt-14 md:pt-32 pb-2 text-white text-center md:text-left"
+    >
+      <div class="container mx-auto flex flex-col md:flex-row">
+        <div class="first-col w-full md:w-5/12 2xl:w-4/12">
+          <p class="text-lg md:text-xl leading-loose md:leading-normal">
+            On the Pulse partners with social enterprises, businesses, and not
+            for profits.
+          </p>
+          <!-- Instagram -->
+          <div class="mt-10 md:mt-20 inline-flex mx-auto">
+            <img src="images/instagram-logo.svg" alt="Instagram" />
+            <a
+              href="https://www.instagram.com/onthepulse_consultancy/"
+              class="font-serif ml-2 my-auto hover:underline text-2xl"
+            >
+              @onthepulse
+            </a>
+          </div>
+
+          <!-- Email subscription -->
+          <div
+            id="mc_embed_shell"
+            class="mt-8 md:mt-12 text-black mx-4 md:mx-auto"
+          >
+            <div id="mc_embed_signup">
+              <form
+                action="https://gmail.us22.list-manage.com/subscribe/post?u=2e26b220adabb69b8e23e9d97&amp;id=b558d2dd25&amp;f_id=00facbe1f0"
+                method="post"
+                id="mc-embedded-subscribe-form"
+                name="mc-embedded-subscribe-form"
+                class="validate text-white"
+                target="_self"
+                novalidate=""
+              >
+                <div id="mc_embed_signup_scroll">
+                  <div class="mc-field-group flex">
+                    <label for="mce-EMAIL" class="sr-only">Email Address</label>
+                    <input
+                      type="email"
+                      name="EMAIL"
+                      class="required email text-[#272E24] h-16 my-auto px-4 w-full"
+                      id="mce-EMAIL"
+                      required=""
+                      value=""
+                      placeholder="Email Address"
+                      aria-label="Email Address"
+                    />
+                    <input
+                      type="submit"
+                      name="subscribe"
+                      id="mc-embedded-subscribe"
+                      class="justify-center ml-3 px-4 h-16 font-semibold text-white whitespace-nowrap bg-[#CA6D55] shadow-sm"
+                      value="Subscribe"
+                    />
+                  </div>
+                  <div id="mce-responses" class="clear foot">
+                    <div
+                      class="response"
+                      id="mce-error-response"
+                      style="display: none"
+                    ></div>
+                    <div
+                      class="response"
+                      id="mce-success-response"
+                      style="display: none"
+                    ></div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    style="position: absolute; left: -5000px"
+                  >
+                    /* real people should not fill this in and expect good
+                    things - do not remove this or risk form bot signups */
+                    <input
+                      type="text"
+                      name="b_2e26b220adabb69b8e23e9d97_b558d2dd25"
+                      tabindex="-1"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <p
+          class="w-full md:w-5/12 2xl:w-4/12 ml-auto text-lg md:text-xl leading-loose md:leading-normal pt-8 md:pt-0 px-4 md:px-0"
+        >
+          A dedicated consultancy in research, communications and impact
+          reporting, driven by a fervent desire to enhance business strategy,
+          acumen and reporting. From assessing messaging effectiveness to
+          evaluating digital presence, leveraging storytelling, and providing
+          valuable insights and strategic recommendations to reach
+          organisational goals.
+        </p>
+      </div>
+
+      <p class="uppercase font-serif text-center mt-14 md:mt-32 text-sm">
+        © 2024, On the Pulse
+      </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Toggle the mobile menu
+      document
+        .querySelector('[data-collapse-toggle="navbar-default"]')
+        .addEventListener("click", function () {
+          document.getElementById("navbar-default").classList.toggle("hidden");
+        });
+
+      // Dynamic opacity when hovering over the card
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const cards = document.querySelectorAll(".what-we-do__card");
+
+        cards.forEach((card) => {
+          if (window.innerWidth > 768) {
+            // Change this value to the breakpoint you want
+            card.parentNode.addEventListener("mouseover", function () {
+              card.classList.replace("xl:opacity-20", "opacity-none");
+            });
+
+            card.parentNode.addEventListener("mouseout", function () {
+              card.classList.replace("opacity-none", "xl:opacity-20");
+            });
+          }
+        });
+      });
+
+      // On page load make the first card active
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const cards = document.querySelectorAll(".what-we-do__card");
+        cards[0].classList.replace("xl:opacity-20", "opacity-none");
+      });
+    </script>
+  </body>
+</html>
